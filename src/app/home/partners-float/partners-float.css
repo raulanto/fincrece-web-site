@@ -1,0 +1,28 @@
+/* Animación básica de desplazamiento */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%); /* Se mueve el 100% de su ancho hacia la izquierda */
+  }
+}
+
+.animate-scroll {
+  /* 30s = velocidad (entre más alto, más lento) */
+  animation: scroll 30s linear infinite;
+}
+
+/* IMPORTANTE: Detener animación al hacer hover sobre el contenedor padre */
+.group:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+/* Ocultar barra de scroll por si acaso */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

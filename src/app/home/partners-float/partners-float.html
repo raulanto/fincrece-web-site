@@ -1,0 +1,50 @@
+<section class="bg-dark-amethyst-500 py-20 overflow-hidden">
+
+  <div class="container mx-auto px-6 mb-10 text-center">
+    <div class="text-center mb-20 relative z-10">
+      <span class="text-bright-amber-600 font-bold tracking-widest uppercase text-xs mb-2 block">
+        Alianzas Estratégicas
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold text-onyx mb-6 text-white">
+        Nuestros <span class="text-bright-amber-500">Convenios</span>
+      </h2>
+      <p class="text-white max-w-2xl mx-auto">
+        Trabajamos con las mejores empresas para brindarte beneficios exclusivos.
+      </p>
+    </div>
+  </div>
+
+  <div class="relative w-full max-w-7xl mx-auto group">
+
+    <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-dark-amethyst-500 to-transparent z-10"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-dark-amethyst-500 to-transparent z-10"></div>
+
+    <div class="flex overflow-hidden mask-linear">
+
+      <div class="flex animate-scroll shrink-0 gap-16 py-4 pr-16 items-center">
+
+        <div *ngFor="let partner of partners"
+          class="relative transition-all duration-300 hover:scale-110 cursor-pointer">
+
+          <img [src]="partner.logo" [alt]="partner.name"
+            class="h-12 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-lg">
+
+        </div>
+
+      </div>
+
+      <div class="flex animate-scroll shrink-0 gap-16 py-4 pr-16 items-center">
+
+        <div *ngFor="let partner of partners"
+          class="relative transition-all duration-300 hover:scale-110 cursor-pointer">
+
+          <img [src]="partner.logo" [alt]="partner.name"
+            class="h-12 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-lg">
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

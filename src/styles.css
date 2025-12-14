@@ -1,2 +1,107 @@
-
 @import "tailwindcss";
+
+
+@theme {
+
+  --font-sans:"Inter", sans-serif;
+  --font-serif: "DM Serif Text", sans-serif;
+
+
+  --color-onyx-50: #666666;
+  --color-onyx-100: #575757;
+  --color-onyx-200: #484848;
+  --color-onyx-300: #393939;
+  --color-onyx-400: #2a2a2a;
+  --color-onyx-500: #151515;
+  --color-onyx-600: #101010;
+  --color-onyx-700: #0b0b0b;
+  --color-onyx-800: #060606;
+  --color-onyx-900: #020202;
+  --color-onyx-950: #000000;
+
+
+  --color-slate-grey-50: #f0f3f6;
+  --color-slate-grey-100: #d6e0e9;
+  --color-slate-grey-200: #b4c6d6;
+  --color-slate-grey-300: #93acbf;
+  --color-slate-grey-400: #8198ad;
+  --color-slate-grey-500: #6f7d8c;
+  --color-slate-grey-600: #5b6978;
+  --color-slate-grey-700: #475564;
+  --color-slate-grey-800: #334150;
+  --color-slate-grey-900: #1f2d3c;
+  --color-slate-grey-950: #101a24;
+
+  /* Bright-Amber (#efca08) - Tono brillante */
+  --color-bright-amber-50: #fffdd9;
+  --color-bright-amber-100: #fff9ae;
+  --color-bright-amber-200: #fff16e;
+  --color-bright-amber-300: #ffe83a;
+  --color-bright-amber-400: #f9d81d;
+  --color-bright-amber-500: #efca08;
+  --color-bright-amber-600: #d9b807;
+  --color-bright-amber-700: #c3a606;
+  --color-bright-amber-800: #ad9405;
+  --color-bright-amber-900: #978204;
+  --color-bright-amber-950: #7b6d03;
+
+  /* White (#fbfbfb) - Tiende a ser muy claro */
+  --color-white-50: #ffffff;
+  --color-white-100: #ffffff;
+  --color-white-200: #fcfcfc;
+  --color-white-300: #fbfbfb;
+  --color-white-400: #fbfbfb;
+  --color-white-500: #fbfbfb;
+  --color-white-600: #f0f0f0;
+  --color-white-700: #e5e5e5;
+  --color-white-800: #dadada;
+  --color-white-900: #cfcfcf;
+  --color-white-950: #b0b0b0;
+
+  /* Dark Amethyst (#312754) */
+  --color-dark-amethyst-50: #c2c0cf;
+  --color-dark-amethyst-100: #a7a4bb;
+  --color-dark-amethyst-200: #8580a5;
+  --color-dark-amethyst-300: #6a6393;
+  --color-dark-amethyst-400: #4d467c;
+  --color-dark-amethyst-500: #312754;
+  --color-dark-amethyst-600: #2c234a;
+  --color-dark-amethyst-700: #271e40;
+  --color-dark-amethyst-800: #221a36;
+  --color-dark-amethyst-900: #1d152c;
+  --color-dark-amethyst-950: #181123;
+
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+}
+
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

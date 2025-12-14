@@ -1,0 +1,75 @@
+<nav [class]="getNavClasses()"
+     class="flex items-center justify-between px-3 py-2 pr-2 lg:px-6 lg:py-3 w-[90%] max-w-[900px]">
+
+  <a href="#" class="flex items-center gap-2 pl-2 lg:pl-0 shrink-0 group">
+    <div
+      class="w-8 h-8 rounded-full bg-gradient-to-br from-bright-amber-500 to-bright-amber-600 flex items-center justify-center shadow-lg group-hover:shadow-bright-amber-500/50 transition-all duration-300">
+      <span class="text-black font-bold text-sm">F</span>
+    </div>
+    <span class="text-white font-semibold text-lg tracking-tight hidden sm:block group-hover:text-bright-amber-100 transition-colors">
+      Fincrece
+    </span>
+  </a>
+
+  <div class="hidden lg:flex items-center gap-6 mx-auto">
+
+    <a href="#nosotros" class="group relative px-2 py-1">
+      <span class="text-sm font-medium text-gray-300 transition-colors duration-300 group-hover:text-white">
+        Nosotros
+      </span>
+      <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-bright-amber-500 transition-all duration-300 ease-out group-hover:w-full"></span>
+    </a>
+
+    <a href="#how-it-works" class="group relative px-2 py-1">
+      <span class="text-sm font-medium text-gray-300 transition-colors duration-300 group-hover:text-white">
+        Productos
+      </span>
+      <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-bright-amber-500 transition-all duration-300 ease-out group-hover:w-full"></span>
+    </a>
+
+    <a href="#use-cases" class="group relative px-2 py-1">
+      <span class="text-sm font-medium text-gray-300 transition-colors duration-300 group-hover:text-white">
+        Convenios
+      </span>
+      <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-bright-amber-500 transition-all duration-300 ease-out group-hover:w-full"></span>
+    </a>
+
+  </div>
+
+  <div class="hidden lg:flex items-center shrink-0">
+    <a href="#contact"
+       class="px-5 py-2 text-sm font-bold text-black bg-white rounded-full transition-all duration-300 hover:bg-bright-amber-400 hover:shadow-[0_0_20px_rgba(251,191,36,0.4)] hover:-translate-y-0.5">
+      Cotizar Crédito
+    </a>
+  </div>
+
+  <button (click)="toggleMenu()" class="lg:hidden p-2 text-white hover:text-bright-amber-400 focus:outline-none ml-auto transition-colors">
+    <div class="w-6 h-6 flex flex-col justify-center items-center gap-1.5">
+      <span [class.rotate-45]="isMenuOpen" [class.translate-y-2]="isMenuOpen"
+            class="block w-5 h-0.5 bg-current transition-all duration-300 rounded-full"></span>
+      <span [class.opacity-0]="isMenuOpen"
+            class="block w-5 h-0.5 bg-current transition-all duration-300 rounded-full"></span>
+      <span [class.-rotate-45]="isMenuOpen" [class.-translate-y-2]="isMenuOpen"
+            class="block w-5 h-0.5 bg-current transition-all duration-300 rounded-full"></span>
+    </div>
+  </button>
+
+  <div *ngIf="isMenuOpen"
+       class="absolute top-full left-0 mt-2 w-full bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden p-2 flex flex-col gap-1 shadow-xl lg:hidden origin-top animate-in fade-in slide-in-from-top-4 duration-200">
+
+    <a href="#nosotros" (click)="closeMenu()"
+       class="px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors">Nosotros</a>
+    <a href="#how-it-works" (click)="closeMenu()"
+       class="px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors">Productos</a>
+    <a href="#pricing" (click)="closeMenu()"
+       class="px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors">Convenios</a>
+
+    <div class="h-px bg-white/10 my-1 mx-2"></div>
+
+    <a href="#contact" (click)="closeMenu()"
+       class="px-4 py-3 text-center text-sm font-bold text-black bg-white rounded-xl hover:bg-bright-amber-400 transition-colors">
+      Cotizar Crédito
+    </a>
+  </div>
+
+</nav>
