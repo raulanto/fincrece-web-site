@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import {DetailQuote} from './detail-quote/detail-quote';
+import {DetailQuote} from './cotizacion/detail-quote/detail-quote';
 import {HomeSite} from './home/home-site/home-site';
 
 
