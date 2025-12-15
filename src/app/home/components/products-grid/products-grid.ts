@@ -59,7 +59,7 @@ export class ProductsGrid {
       id: 3,
       title: 'Capital de Trabajo',
       category: 'Liquidez y Operación',
-      image: 'https://images.unsplash.com/photo-1664575602554-208c7a264381?q=80&w=2070&auto=format&fit=crop', // Reunión de negocios/Almacén
+      image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbold.com.ec%2Fwp-content%2Fuploads%2F2021%2F11%2FDestacada-PP-Capital-de-Trabajo.jpg&f=1&nofb=1&ipt=45443323b333adebe2d6c784a90d89664e09fed9f8958870d4bcfb56ab12f7d6', // Reunión de negocios/Almacén
       showDetails: false,
       features: [
         'Línea revolvente ($100k - $10M MXN)',
