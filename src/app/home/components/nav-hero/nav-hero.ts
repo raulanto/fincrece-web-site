@@ -1,9 +1,9 @@
 import { Component, HostListener } from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-nav-hero',
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './nav-hero.html',
   styleUrl: './nav-hero.css',
   standalone: true,
@@ -11,7 +11,7 @@ import {CommonModule} from '@angular/common';
 export class NavHero {
   isMenuOpen = false;
   scrolled = false;
-
+  logoPath: string = 'assets/logo.png';
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.scrolled = window.pageYOffset > 20;
@@ -19,7 +19,7 @@ export class NavHero {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-    // Opcional: Bloquear el scroll del body cuando el menú está abierto
+
     if (this.isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
