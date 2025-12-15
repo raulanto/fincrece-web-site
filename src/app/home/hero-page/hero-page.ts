@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HeroSection} from '../hero-section/hero-section';
+import {HeroSection} from '../pages/hero-section/hero-section';
 
 @Component({
   selector: 'app-hero-page',

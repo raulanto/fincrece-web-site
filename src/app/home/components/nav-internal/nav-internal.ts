@@ -39,7 +39,7 @@ export class NavInternal {
 
   getNavClasses(): string {
 
-    const base = 'fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out border border-white/10 shadow-2xl backdrop-blur-md bg-dark-amethyst-800 rounded-full';
+    const base = 'fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out border border-white/10 shadow-2xl backdrop-blur-md bg-dark-amethyst-500 rounded-full';
 
     const state = this.isVisible
       ? 'top-6 opacity-100 visible'

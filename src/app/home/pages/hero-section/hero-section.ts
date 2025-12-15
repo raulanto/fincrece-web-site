@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavHero} from '../components/nav-hero/nav-hero';
+import {NavHero} from '../../components/nav-hero/nav-hero';
 
 @Component({
   selector: 'app-hero-section',

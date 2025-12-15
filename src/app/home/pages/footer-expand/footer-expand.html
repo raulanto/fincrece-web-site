@@ -1,0 +1,96 @@
+<footer class="bg-dark-amethyst-500 text-slate-400 font-sans text-sm border-t border-white/5">
+
+  <div class="container mx-auto px-6 lg:px-12 pt-16 pb-8">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+
+      <div class="lg:col-span-4 flex flex-col items-start">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-dark-amethyst-600 rounded-lg flex items-center justify-center text-white font-serif font-bold text-xl">
+            F
+          </div>
+          <div>
+            <span class="block text-white font-bold text-lg tracking-tight leading-none">FINCRECE</span>
+            <span class="block text-dark-amethyst-500 text-[10px] font-bold tracking-[0.2em] uppercase">Entidad Financiera</span>
+          </div>
+        </div>
+
+        <p class="leading-relaxed mb-8 max-w-xs text-slate-500">
+          Soluciones financieras especializadas para el crecimiento empresarial y personal en el sureste mexicano.
+        </p>
+
+        <div class="flex gap-4">
+          <a *ngFor="let social of socials" href="#"
+             class="text-slate-500 hover:text-bright-amber-400 transition-colors duration-300">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.492 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h4 class="text-white font-bold mb-6">Empresa</h4>
+        <ul class="space-y-4">
+          <li *ngFor="let item of indices">
+            <a [href]="item.link" class="hover:text-bright-amber-400 transition-colors duration-200 block">
+              {{ item.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h4 class="text-white font-bold mb-6">Soluciones</h4>
+        <ul class="space-y-4">
+          <li *ngFor="let link of productLinks">
+            <a href="#" class="hover:text-bright-amber-400 transition-colors duration-200 block">
+              {{ link }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h4 class="text-white font-bold mb-6">Contacto</h4>
+        <div class="space-y-6">
+
+          <div class="group">
+            <p class="text-xs text-slate-500 uppercase tracking-wider mb-1 group-hover:text-bright-amber-400 transition-colors">Atención Salarial</p>
+            <a href="tel:+529931860683" class="text-slate-300 hover:text-white transition-colors text-base font-medium block">
+              +52 (993) 186 0683
+            </a>
+          </div>
+
+          <div class="group">
+            <p class="text-xs text-slate-500 uppercase tracking-wider mb-1 group-hover:text-bright-amber-400 transition-colors">Atención Empresarial</p>
+            <a href="tel:+529933121093" class="text-slate-300 hover:text-white transition-colors text-base font-medium block">
+              +52 (993) 312 1093
+            </a>
+          </div>
+
+          <div class="group">
+            <p class="text-xs text-slate-500 uppercase tracking-wider mb-1 group-hover:text-bright-amber-400 transition-colors">Correo Electrónico</p>
+            <a href="mailto:comercial@fincrece.com.mx" class="text-slate-300 hover:text-white transition-colors text-base font-medium block">
+              comercial@fincrece.com.mx
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+
+      <p class="text-slate-600 text-xs">
+        © {{ currentYear }} Fincrece S.A.P.I. de C.V., SOFOM, E.N.R.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-6 md:gap-8">
+        <a *ngFor="let link of legalLinks" href="#" class="text-xs text-slate-500 hover:text-white transition-colors">
+          {{ link }}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</footer>

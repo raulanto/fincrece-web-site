@@ -20,16 +20,22 @@
       <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-bright-amber-500 transition-all duration-300 ease-out group-hover:w-full"></span>
     </a>
 
-    <a href="#how-it-works" class="group relative px-2 py-1">
+    <a href="#productos" class="group relative px-2 py-1">
       <span class="text-sm font-medium text-gray-300 transition-colors duration-300 group-hover:text-white">
         Productos
       </span>
       <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-bright-amber-500 transition-all duration-300 ease-out group-hover:w-full"></span>
     </a>
 
-    <a href="#use-cases" class="group relative px-2 py-1">
+    <a href="#convenios" class="group relative px-2 py-1">
       <span class="text-sm font-medium text-gray-300 transition-colors duration-300 group-hover:text-white">
         Convenios
+      </span>
+      <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-bright-amber-500 transition-all duration-300 ease-out group-hover:w-full"></span>
+    </a>
+    <a href="#fondos" class="group relative px-2 py-1">
+      <span class="text-sm font-medium text-gray-300 transition-colors duration-300 group-hover:text-white">
+        Fondeos
       </span>
       <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-bright-amber-500 transition-all duration-300 ease-out group-hover:w-full"></span>
     </a>
@@ -37,7 +43,7 @@
   </div>
 
   <div class="hidden lg:flex items-center shrink-0">
-    <a href="#contact"
+    <a href="#cotizacion"
        class="px-5 py-2 text-sm font-bold text-black bg-white rounded-full transition-all duration-300 hover:bg-bright-amber-400 hover:shadow-[0_0_20px_rgba(251,191,36,0.4)] hover:-translate-y-0.5">
       Cotizar Crédito
     </a>
@@ -55,15 +61,16 @@
   </button>
 
   <div *ngIf="isMenuOpen"
-       class="absolute top-full left-0 mt-2 w-full bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden p-2 flex flex-col gap-1 shadow-xl lg:hidden origin-top animate-in fade-in slide-in-from-top-4 duration-200">
+       class="absolute top-full left-0 mt-2 w-full bg-dark-amethyst-500 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden p-2 flex flex-col gap-1 shadow-xl lg:hidden origin-top animate-in fade-in slide-in-from-top-4 duration-200">
 
     <a href="#nosotros" (click)="closeMenu()"
        class="px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors">Nosotros</a>
-    <a href="#how-it-works" (click)="closeMenu()"
+    <a href="#productos" (click)="closeMenu()"
        class="px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors">Productos</a>
-    <a href="#pricing" (click)="closeMenu()"
+    <a href="#convenios" (click)="closeMenu()"
        class="px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors">Convenios</a>
-
+    <a href="#fondos" (click)="closeMenu()"
+       class="px-4 py-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors">Fondeos</a>
     <div class="h-px bg-white/10 my-1 mx-2"></div>
 
     <a href="#contact" (click)="closeMenu()"
