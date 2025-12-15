@@ -2,64 +2,69 @@
 
   <div class="container mx-auto flex items-center justify-between px-6 lg:px-12">
 
-    <a href="/public" class="flex items-center gap-3 group z-50">
-      <img [ngSrc]="logoPath" alt="Fincrece Logo"
-           class="w-8 h-8 object-contain" height="587" width="937">
+    <a href="/" class="flex items-center gap-3 group z-50">
+      <img [ngSrc]="logoPath"
+           alt="Fincrece Logo"
+           class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+           height="587"
+           width="937">
     </a>
 
-    <div class="hidden md:flex items-center gap-10">
+    <div class="hidden md:flex items-center gap-8 lg:gap-10">
 
-      <a href="#" class="text-sm font-medium text-white/80 hover:text-white transition-colors duration-300">
+      <a href="#" class="text-sm font-medium text-slate-600 hover:text-dark-amethyst-600 transition-colors duration-300">
         Inicio
       </a>
-      <a href="#nosotros" class="text-sm font-medium text-white/80 hover:text-white transition-colors duration-300">
+      <a href="#nosotros" class="text-sm font-medium text-slate-600 hover:text-dark-amethyst-600 transition-colors duration-300">
         Nosotros
       </a>
-      <a href="#servicios" class="text-sm font-medium text-white/80 hover:text-white transition-colors duration-300">
-        Servicios especilizados
+      <a href="#servicios" class="text-sm font-medium text-slate-600 hover:text-dark-amethyst-600 transition-colors duration-300">
+        Servicios especializados
       </a>
-      <a href="#convenios" class="text-sm font-medium text-white/80 hover:text-white transition-colors duration-300">
+      <a href="#convenios" class="text-sm font-medium text-slate-600 hover:text-dark-amethyst-600 transition-colors duration-300">
         Convenios
       </a>
+
       <a href="#contacto"
-         class="px-6 py-2.5 rounded-full border border-white/20 text-white text-sm font-medium transition-all duration-300 hover:bg-white hover:text-dark-amethyst-900 hover:border-white">
+         class="px-6 py-2.5 rounded-full border border-dark-amethyst-600 text-dark-amethyst-700 text-sm font-bold transition-all duration-300 hover:bg-dark-amethyst-600 hover:text-white hover:shadow-lg hover:shadow-dark-amethyst-200">
         Contacto
       </a>
     </div>
 
     <div class="md:hidden relative z-50">
       <button (click)="toggleMenu()"
-              class="text-white hover:text-bright-amber-500 transition-colors focus:outline-none p-2 group">
+              class="text-slate-900 hover:text-dark-amethyst-600 transition-colors focus:outline-none p-2 group">
         <div class="w-6 h-6 flex flex-col justify-center items-end gap-1.5">
-          <span [class.rotate-45]="isMenuOpen" [class.translate-y-2]="isMenuOpen"
-                class="block w-6 h-0.5 bg-current transition-all duration-300 group-hover:bg-dark-amethyst-400"></span>
+          <span [class.rotate-45]="isMenuOpen" [class.translate-y-2]="isMenuOpen" [class.bg-white]="isMenuOpen"
+                class="block w-6 h-0.5 bg-current transition-all duration-300 rounded-full"></span>
           <span [class.opacity-0]="isMenuOpen"
-                class="block w-4 h-0.5 bg-current transition-all duration-300 group-hover:bg-dark-amethyst-400"></span>
-          <span [class.-rotate-45]="isMenuOpen" [class.-translate-y-2]="isMenuOpen" [class.w-6]="isMenuOpen"
-                class="block w-5 h-0.5 bg-current transition-all duration-300 group-hover:bg-dark-amethyst-400"></span>
+                class="block w-4 h-0.5 bg-current transition-all duration-300 rounded-full group-hover:w-6"></span>
+          <span [class.-rotate-45]="isMenuOpen" [class.-translate-y-2]="isMenuOpen" [class.w-6]="isMenuOpen" [class.bg-white]="isMenuOpen"
+                class="block w-5 h-0.5 bg-current transition-all duration-300 rounded-full group-hover:w-6"></span>
         </div>
       </button>
     </div>
   </div>
 
   <div *ngIf="isMenuOpen"
-       class="md:hidden fixed inset-0 top-0 bg-dark-amethyst-950/95 backdrop-blur-2xl border-b border-white/5 flex flex-col items-center justify-center space-y-8 z-40 animate-in fade-in zoom-in-95 duration-300">
+       class="md:hidden fixed inset-0 top-0 bg-zinc-950/98 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 z-40 animate-in fade-in zoom-in-95 duration-300">
 
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-[20%] -right-[20%] w-96 h-96 bg-dark-amethyst-500/30 rounded-full blur-3xl"></div>
+      <div class="absolute -top-[20%] -right-[20%] w-96 h-96 bg-dark-amethyst-600/20 rounded-full blur-3xl"></div>
       <div class="absolute bottom-[10%] left-[10%] w-64 h-64 bg-bright-amber-500/10 rounded-full blur-3xl"></div>
     </div>
 
     <a href="#" (click)="closeMenu()"
-       class="text-3xl font-serif text-white hover:text-bright-amber-500 transition-colors relative z-10">Inicio</a>
+       class="text-3xl font-serif text-white hover:text-bright-amber-400 transition-colors relative z-10">Inicio</a>
     <a href="#nosotros" (click)="closeMenu()"
-       class="text-3xl font-serif text-white hover:text-bright-amber-500 transition-colors relative z-10">Nosotros</a>
+       class="text-3xl font-serif text-white hover:text-bright-amber-400 transition-colors relative z-10">Nosotros</a>
     <a href="#servicios" (click)="closeMenu()"
-       class="text-3xl font-serif text-white hover:text-bright-amber-500 transition-colors relative z-10">        Servicios especilizados</a>
+       class="text-3xl font-serif text-white hover:text-bright-amber-400 transition-colors relative z-10">Servicios especializados</a>
     <a href="#convenios" (click)="closeMenu()"
-       class="text-3xl font-serif text-white hover:text-bright-amber-500 transition-colors relative z-10">        Convenios</a>
+       class="text-3xl font-serif text-white hover:text-bright-amber-400 transition-colors relative z-10">Convenios</a>
+
     <a href="#contacto" (click)="closeMenu()"
-       class="px-10 py-4 rounded-full bg-gradient-to-r from-bright-amber-500 to-bright-amber-500 text-black font-bold shadow-lg shadow-dark-amethyst-900/50 relative z-10 mt-4">
+       class="px-10 py-4 rounded-full bg-white text-dark-amethyst-900 font-bold shadow-lg shadow-white/10 relative z-10 mt-4 hover:scale-105 transition-transform">
       Contactar Ahora
     </a>
   </div>

@@ -1,12 +1,41 @@
-@keyframes scale-slow {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+
+.ticker-up {
+  animation: scrollUp 40s linear infinite;
 }
 
-.animate-scale-slow {
-  animation: scale-slow 20s ease-in-out infinite;
+.ticker-down {
+  animation: scrollDown 45s linear infinite;
+}
+
+
+.group-col:hover .ticker-up,
+.group-col:hover .ticker-down {
+  animation-play-state: paused;
+}
+
+
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+
+img {
+  will-change: transform;
+}
+
+
+@keyframes ticker-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+@keyframes ticker-down {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
 }
