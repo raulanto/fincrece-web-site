@@ -21,8 +21,6 @@ import {ComsumoEmpresarial} from '../pages/comsumo-empresarial/comsumo-empresari
     HeroPage,
     NavInternal,
     PartnersFloat,
-    ProductsGrid,
-    ScrollFeatures,
     ComsumoEmpresarial
   ],
   templateUrl: './home-site.html',
