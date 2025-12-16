@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AboutHome} from "../pages/about-home/about-home";
 import {ContactMap} from "../pages/contact-map/contact-map";
-import {FooterExpand} from "../pages/footer-expand/footer-expand";
+import {FooterExpand} from "../components/footer-expand/footer-expand";
 import {FundingSection} from "../pages/funding-section/funding-section";
 import {HeroPage} from "../hero-page/hero-page";
 import {HeroQuote} from "../components/hero-quote/hero-quote";
