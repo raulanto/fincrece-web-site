@@ -7,8 +7,6 @@ interface Value {
   svgPath: string;
 }
 
-
-
 @Component({
   selector: 'app-about-home',
   imports: [CommonModule],

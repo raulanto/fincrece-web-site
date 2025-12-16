@@ -10,99 +10,92 @@
     </div>
   </div>
 
-  <div class="flex-1 relative grid lg:grid-cols-12 overflow-hidden">
+  <div class="flex-1 relative flex w-full overflow-hidden bg-slate-50">
 
     <div class="absolute top-0 left-0 w-full z-50">
       <app-nav-hero />
     </div>
 
-    <div class="col-span-12 lg:col-span-7 relative z-20 flex flex-col justify-center h-full px-6 md:px-12 lg:px-20 bg-white shadow-[10px_0_30px_rgba(0,0,0,0.02)]">
+    <div class="hidden lg:block w-[20%] h-full relative overflow-hidden border-r border-slate-100 bg-white group-col">
 
-      <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none opacity-[0.04]">
-        <img src="assets/logo-17.png"
-             class="w-[120%] max-w-none md:w-[80%] h-auto object-contain grayscale -rotate-6 transform scale-110"
-             alt="" />
-      </div>
+      <div class="absolute inset-0 z-20 pointer-events-none bg-gradient-to-b from-white via-transparent to-white h-full w-full"></div>
 
-      <div class="relative z-10 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left mt-16 lg:mt-0">
+      <div class="ticker-up flex flex-col gap-6 p-4 w-full">
+        <ng-container *ngFor="let item of leftImages.concat(leftImages)">
+          <div class="relative h-[30vh] w-full rounded-xl overflow-hidden shadow-sm bg-slate-100 group cursor-pointer">
+            <img [ngSrc]="item.src" fill class="object-cover transition-transform duration-700 group-hover:scale-110" [alt]="item.title">
 
-        <div class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-slate-100 bg-slate-50 shadow-sm backdrop-blur-sm">
-          <span class="flex h-2 w-2 relative">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-bright-amber-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-bright-amber-500"></span>
-          </span>
-          <span class="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 font-bold">Bienvenidos a Fincrece</span>
-        </div>
-
-        <h1 class="font-serif text-4xl sm:text-5xl lg:text-7xl text-slate-900 leading-[1.1] mb-6 tracking-tight">
-          Fincrece S.A.P.I. <br class="hidden sm:block"/>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">
-            de C.V., SOFOM
-          </span>
-        </h1>
-
-        <p class="text-slate-500 text-base sm:text-lg lg:text-xl mb-8 leading-relaxed font-light mx-auto lg:mx-0 max-w-lg">
-          Transformamos vidas y comunidades a través del acceso <strong class="text-slate-700 font-medium">justo, ágil y responsable</strong> al crédito.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
-          <a href="#nosotros"
-             class="group px-8 py-3.5 bg-dark-amethyst-600 text-white rounded-full font-bold hover:bg-dark-amethyst-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
-            <span>Saber más</span>
-            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-          </a>
-
-          <a href="#cotizar"
-             class="group px-8 py-3.5 border border-slate-200 text-slate-600 rounded-full font-bold hover:border-dark-amethyst-600 hover:text-dark-amethyst-700 hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
-            <span>Cotizar Crédito</span>
-            <div class="w-1.5 h-1.5 rounded-full bg-bright-amber-500 group-hover:scale-125 transition-transform"></div>
-          </a>
-        </div>
-
+            <div class="absolute inset-0 bg-zinc-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+              <span class="text-white font-serif text-lg font-bold tracking-widest uppercase border-b-2 border-bright-amber-400 pb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-center px-2">
+                {{ item.title }}
+              </span>
+            </div>
+          </div>
+        </ng-container>
       </div>
     </div>
 
 
-    <div class="hidden lg:flex lg:col-span-5 relative h-full bg-slate-50 overflow-hidden border-l border-slate-100">
+    <div class="flex-1 relative z-30 flex flex-col justify-center items-center px-6 text-center bg-white">
 
-      <div class="absolute inset-0 z-20 pointer-events-none bg-gradient-to-b from-slate-50 via-transparent to-slate-50"></div>
+      <div class="flex justify-center mb-8 animate-fade-in-up">
+        <div class="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.08)] flex items-center justify-center p-5 border border-slate-100">
+          <img src="assets/logo-17.png" class="w-full h-full object-contain" alt="Fincrece Logo">
+        </div>
+      </div>
 
-      <div class="w-full h-full flex justify-center gap-6 p-8 -skew-x-3 scale-110 origin-bottom">
+      <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50 shadow-sm animate-fade-in-up delay-100">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-bright-amber-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-bright-amber-500"></span>
+        </span>
+        <span class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">Bienvenidos a Fincrece</span>
+      </div>
 
-        <div class="w-1/2 h-full relative group-col">
-          <div class="ticker-up flex flex-col gap-6">
-            <ng-container *ngFor="let item of column1.concat(column1)">
-              <div class="relative h-[35vh] w-full rounded-2xl overflow-hidden shadow-sm bg-white group cursor-pointer">
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-7xl xl:text-8xl text-slate-900 leading-none mb-6 tracking-tight animate-fade-in-up delay-200">
+        Fincrece S.A.P.I. <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-dark-amethyst-600 to-dark-amethyst-400">
+          de C.V., SOFOM
+        </span>
+      </h1>
 
-                <img [ngSrc]="item.src" fill class="object-cover transition-transform duration-700 group-hover:scale-110" [alt]="item.title">
+      <p class="text-slate-500 text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in-up delay-300">
+        Transformamos vidas a través del acceso <strong class="text-slate-800 font-medium">justo, ágil y responsable</strong> al crédito.
+      </p>
 
-                <div class="absolute inset-0 bg-zinc-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-              <span class="text-white font-serif text-xl md:text-2xl font-bold tracking-widest uppercase border-b-2 border-bright-amber-400 pb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full animate-fade-in-up delay-400">
+        <a href="#nosotros"
+           class="group min-w-[160px] px-8 py-4 bg-dark-amethyst-600 text-white rounded-full font-bold hover:bg-dark-amethyst-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+          <span>Saber más</span>
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+
+        <a href="#cotizar"
+           class="group min-w-[160px] px-8 py-4 bg-white border border-slate-200 text-slate-600 rounded-full font-bold hover:border-bright-amber-400 hover:text-bright-amber-600 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+          <span>Cotizar Crédito</span>
+          <div class="w-2 h-2 rounded-full bg-bright-amber-500 group-hover:scale-125 transition-transform"></div>
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="hidden lg:block w-[20%] h-full relative overflow-hidden border-l border-slate-100 bg-white group-col">
+
+      <div class="absolute inset-0 z-20 pointer-events-none bg-gradient-to-b from-white via-transparent to-white h-full w-full"></div>
+
+      <div class="ticker-down flex flex-col gap-6 p-4 w-full">
+        <ng-container *ngFor="let item of rightImages.concat(rightImages)">
+          <div class="relative h-[30vh] w-full rounded-xl overflow-hidden shadow-sm bg-slate-100 group cursor-pointer">
+            <img [ngSrc]="item.src" fill class="object-cover transition-transform duration-700 group-hover:scale-110" [alt]="item.title">
+
+            <div class="absolute inset-0 bg-zinc-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+              <span class="text-white font-serif text-lg font-bold tracking-widest uppercase border-b-2 border-bright-amber-400 pb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-center px-2">
                 {{ item.title }}
               </span>
-                </div>
-              </div>
-            </ng-container>
+            </div>
           </div>
-        </div>
-
-        <div class="w-1/2 h-full relative group-col mt-16">
-          <div class="ticker-down flex flex-col gap-6">
-            <ng-container *ngFor="let item of column2.concat(column2)">
-              <div class="relative h-[35vh] w-full rounded-2xl overflow-hidden shadow-sm bg-white group cursor-pointer">
-
-                <img [ngSrc]="item.src" fill class="object-cover transition-transform duration-700 group-hover:scale-110" [alt]="item.title">
-
-                <div class="absolute inset-0 bg-zinc-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-              <span class="text-white font-serif text-xl md:text-2xl font-bold tracking-widest uppercase border-b-2 border-bright-amber-400 pb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                {{ item.title }}
-              </span>
-                </div>
-              </div>
-            </ng-container>
-          </div>
-        </div>
-
+        </ng-container>
       </div>
     </div>
 
