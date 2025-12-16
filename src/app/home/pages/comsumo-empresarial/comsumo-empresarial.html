@@ -1,124 +1,165 @@
-<section class="min-h-screen bg-slate-50 font-sans py-24">
+<section class="min-h-screen bg-slate-50 font-sans py-20 overflow-hidden">
+  <div class="container mx-auto px-4 md:px-8">
 
-  <div class="container mx-auto px-6 lg:px-12">
+    <div class="flex flex-col md:flex-row items-end justify-between gap-8 mb-12">
+      <div class="max-w-xl">
+        <span class="text-bright-amber-500 font-bold text-xs uppercase tracking-[0.2em] mb-2 block animate-fade-in">
+          Portafolio Integral
+        </span>
+        <h2 class="text-4xl md:text-5xl font-serif text-slate-900 leading-tight mb-4 animate-fade-in delay-100">
+          Soluciones que se adaptan a tu <span class="text-transparent bg-clip-text bg-gradient-to-r from-dark-amethyst-700 to-dark-amethyst-500">ambición.</span>
+        </h2>
+        <p class="text-slate-500 text-lg animate-fade-in delay-200">
+          Explora nuestros productos financieros diseñados para cada etapa de crecimiento.
+        </p>
+      </div>
 
-    <div class="text-center mb-16 animate-fade-in-up">
-      <span class="text-bright-amber-500 font-bold text-sm uppercase tracking-[0.2em] mb-3 block">
-        Catálogo de Soluciones
-      </span>
-      <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mb-6">
-        Impulsamos tus metas
-      </h2>
-      <p class="text-slate-500 text-lg max-w-2xl mx-auto mb-10">
-        Ya sea para construir tu patrimonio personal o expandir tu empresa, tenemos el instrumento financiero ideal.
-      </p>
-
-      <div class="inline-flex bg-white p-1.5 rounded-full shadow-md border border-slate-100 relative">
-
-        <button (click)="setCategory('consumo')"
-                class="px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 relative z-10 flex items-center gap-2"
-                [ngClass]="activeCategory === 'consumo' ? 'active-tab shadow-md transform scale-105' : 'inactive-tab hover:bg-slate-50'">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-          PERSONAS
-        </button>
-
+      <div class="bg-white p-1.5 rounded-xl shadow-sm border border-slate-200 inline-flex shrink-0 animate-fade-in delay-300">
         <button (click)="setCategory('empresarial')"
-                class="px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 relative z-10 flex items-center gap-2"
-                [ngClass]="activeCategory === 'empresarial' ? 'active-tab shadow-md transform scale-105' : 'inactive-tab hover:bg-slate-50'">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-          EMPRESAS
+                class="px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 flex items-center gap-2"
+                [ngClass]="activeCategory === 'empresarial' ? 'bg-dark-amethyst-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'">
+          Empresas
+        </button>
+        <button (click)="setCategory('consumo')"
+                class="px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 flex items-center gap-2"
+                [ngClass]="activeCategory === 'consumo' ? 'bg-dark-amethyst-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'">
+          Personas
         </button>
       </div>
     </div>
 
 
-    <div *ngIf="activeCategory === 'consumo'" class="fade-in">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div *ngIf="activeCategory === 'empresarial'" class="animate-fade-in-up">
 
-        <div *ngFor="let product of consumoProducts"
-             class="group relative h-[400px] rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer bg-white">
+      <div class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px]">
 
-          <img [ngSrc]="product.image" fill class="object-cover transition-transform duration-700 group-hover:scale-110" [alt]="product.title">
+        <div *ngFor="let sector of sectors; let i = index"
+             (click)="setActiveSector(i)"
+             class="relative rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-700 ease-out group border border-slate-200"
+             [ngClass]="expandedSectorIndex === i ? 'lg:flex-[3] h-[500px] lg:h-auto ring-4 ring-dark-amethyst-100' : 'lg:flex-[1] h-[120px] lg:h-auto filter grayscale hover:grayscale-0'">
 
-          <div class="absolute inset-0 bg-gradient-to-t from-dark-amethyst-900 via-dark-amethyst-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <img [ngSrc]="sector.image" fill class="object-cover transition-transform duration-1000"
+               [ngClass]="expandedSectorIndex === i ? 'scale-100' : 'scale-125'"
+               [alt]="sector.title">
 
-          <div class="absolute inset-0 p-8 flex flex-col justify-end">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-amethyst-950 via-dark-amethyst-900/60 to-transparent opacity-90 transition-opacity duration-500"
+               [ngClass]="expandedSectorIndex === i ? 'opacity-90' : 'opacity-60 group-hover:opacity-80'"></div>
 
-            <div class="absolute top-6 right-6 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 group-hover:bg-bright-amber-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="product.icon"></path></svg>
-            </div>
+          <div class="absolute inset-0 p-8 flex flex-col justify-end overflow-hidden">
 
-            <span class="text-bright-amber-400 font-bold text-xs uppercase tracking-widest mb-2">{{ product.subtitle }}</span>
-            <h3 class="text-white text-2xl font-bold mb-3">{{ product.title }}</h3>
-
-            <div class="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100">
-              <p class="text-slate-200 text-sm leading-relaxed mb-4">
-                {{ product.desc }}
-              </p>
-              <span class="inline-flex items-center text-white text-sm font-bold border-b border-bright-amber-500 pb-0.5">
-                 Solicitar información
-                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <div class="transition-all duration-500 origin-bottom-left"
+                 [ngClass]="expandedSectorIndex === i ? 'mb-8' : 'mb-0 lg:rotate-[-90deg] lg:translate-x-4 lg:mb-12 lg:whitespace-nowrap'">
+               <span class="text-bright-amber-400 font-bold tracking-widest uppercase text-xs mb-2 block"
+                     [ngClass]="expandedSectorIndex === i ? 'opacity-100' : 'opacity-0 lg:hidden'">
+                 {{ sector.subtitle }}
                </span>
+              <h3 class="text-white font-serif font-bold transition-all duration-500"
+                  [ngClass]="expandedSectorIndex === i ? 'text-4xl md:text-5xl' : 'text-2xl lg:text-3xl'">
+                {{ sector.title }}
+              </h3>
+            </div>
+
+            <div class="space-y-6 transition-all duration-700 delay-100"
+                 [ngClass]="expandedSectorIndex === i ? 'opacity-100 max-h-[500px] translate-y-0' : 'opacity-0 max-h-0 translate-y-8'">
+
+              <p class="text-slate-200 text-lg leading-relaxed max-w-2xl border-l-2 border-bright-amber-500 pl-4">
+                {{ sector.desc }}
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                <div *ngFor="let feature of sector.features" class="flex items-center gap-3 text-slate-300 text-sm">
+                  <div class="w-1.5 h-1.5 rounded-full bg-bright-amber-500"></div>
+                  {{ feature }}
+                </div>
+              </div>
+
+              <button class="mt-4 px-8 py-3 bg-white text-dark-amethyst-900 rounded-full font-bold hover:bg-bright-amber-400 transition-colors flex items-center gap-2">
+                Solicitar Cotización
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </button>
             </div>
 
           </div>
         </div>
-
       </div>
     </div>
 
 
-    <div *ngIf="activeCategory === 'empresarial'" class="fade-in space-y-8">
+    <div *ngIf="activeCategory === 'consumo'" class="animate-fade-in-up">
 
-      <div *ngFor="let sector of businessSectors; let i = index"
-           class="group bg-white  p-4 border border-slate-100 shadow-sm hover:shadow-xl hover:border-dark-amethyst-200 transition-all duration-300 flex flex-col md:flex-row gap-6 md:gap-10 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div class="w-full md:w-1/3 h-52 md:h-64 relative rounded-[1.5rem] overflow-hidden">
-          <div class="absolute inset-0 bg-dark-amethyst-900/10 group-hover:bg-transparent transition-colors z-10"></div>
-          <img [ngSrc]="sector.image" fill class="object-cover transition-transform duration-700 group-hover:scale-105" [alt]="sector.name">
-        </div>
+        <div *ngFor="let product of products; let i = index"
+             class="bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group">
 
-        <div class="flex-1 py-4 pr-6">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-8 h-[2px] bg-bright-amber-500"></div>
-            <span class="text-slate-500 font-bold text-xs uppercase tracking-widest">{{ sector.name }}</span>
+          <div class="p-8 cursor-pointer" (click)="toggleProduct(i)">
+            <div class="flex justify-between items-start mb-6">
+              <span class="px-3 py-1 rounded-full bg-dark-amethyst-50 text-dark-amethyst-600 text-xs font-bold uppercase tracking-wider border border-dark-amethyst-100">
+                {{ product.tag }}
+              </span>
+              <button class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 transition-transform duration-300"
+                      [ngClass]="expandedProductIndex === i ? 'rotate-180 bg-dark-amethyst-100 text-dark-amethyst-600' : ''">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+            </div>
+
+            <h3 class="text-3xl font-bold text-slate-900 mb-3 group-hover:text-dark-amethyst-600 transition-colors">
+              {{ product.title }}
+            </h3>
+            <p class="text-slate-500 text-base leading-relaxed">
+              {{ product.shortDesc }}
+            </p>
           </div>
 
-          <h3 class="text-3xl font-serif text-slate-900 mb-4 group-hover:text-dark-amethyst-600 transition-colors">
-            {{ sector.highlight }}
-          </h3>
+          <div class="bg-slate-50 transition-all duration-500 ease-in-out overflow-hidden"
+               [style.max-height]="expandedProductIndex === i ? '600px' : '0px'"
+               [ngClass]="expandedProductIndex === i ? 'opacity-100' : 'opacity-0'">
 
-          <p class="text-slate-500 text-lg mb-6 leading-relaxed max-w-xl">
-            {{ sector.desc }}
-          </p>
+            <div class="p-8 border-t border-slate-200">
+              <p class="text-slate-600 mb-6 text-sm">
+                {{ product.fullDesc }}
+              </p>
 
-          <div class="flex flex-wrap gap-3">
-             <span *ngFor="let detail of sector.details"
-                   class="px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-sm font-medium group-hover:bg-dark-amethyst-50 group-hover:text-dark-amethyst-700 group-hover:border-dark-amethyst-100 transition-colors">
-               {{ detail }}
-             </span>
+              <div class="space-y-6">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-bright-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Requisitos Básicos
+                  </h4>
+                  <ul class="grid grid-cols-1 gap-2">
+                    <li *ngFor="let req of product.requirements" class="text-xs text-slate-500 pl-6 relative">
+                      <span class="absolute left-1.5 top-1.5 w-1 h-1 rounded-full bg-slate-400"></span>
+                      {{ req }}
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-bright-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Beneficios Clave
+                  </h4>
+                  <ul class="grid grid-cols-1 gap-2">
+                    <li *ngFor="let ben of product.benefits" class="text-xs text-slate-500 pl-6 relative">
+                      <span class="absolute left-1.5 top-1.5 w-1 h-1 rounded-full bg-slate-400"></span>
+                      {{ ben }}
+                    </li>
+                  </ul>
+                </div>
+
+                <button class="w-full py-3 bg-dark-amethyst-600 text-white rounded-xl font-bold hover:bg-dark-amethyst-700 transition-colors text-sm shadow-lg shadow-dark-amethyst-200">
+                  Iniciar Solicitud
+                </button>
+              </div>
+            </div>
           </div>
+
+          <div class="h-1 w-full bg-slate-100">
+            <div class="h-full bg-bright-amber-500 transition-all duration-500"
+                 [style.width]="expandedProductIndex === i ? '100%' : '0%'"></div>
+          </div>
+
         </div>
-
-        <div class="hidden md:flex flex-col items-center justify-center pr-8 pl-4 border-l border-slate-100 h-32">
-          <button class="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-bright-amber-500 group-hover:text-white transition-all duration-300 transform group-hover:rotate-45">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-          </button>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="mt-20 text-center bg-dark-amethyst-900 rounded-[2rem] p-12 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-bright-amber-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-
-      <div class="relative z-10">
-        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">¿Listo para impulsar tu crecimiento?</h3>
-        <p class="text-slate-300 mb-8 max-w-xl mx-auto">Nuestros asesores especializados están listos para diseñar la estrategia financiera perfecta para ti.</p>
-        <a href="#contacto" class="inline-block px-8 py-4 bg-bright-amber-500 text-white font-bold rounded-full hover:bg-bright-amber-400 hover:scale-105 transition-all shadow-lg shadow-bright-amber-500/20">
-          Contactar a un Asesor
-        </a>
       </div>
     </div>
 
