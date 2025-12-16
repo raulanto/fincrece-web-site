@@ -18,7 +18,6 @@ import {ScrollFeatures} from "../components/scroll-features/scroll-features";
         FooterExpand,
         FundingSection,
         HeroPage,
-        HeroQuote,
         NavInternal,
         PartnersFloat,
         ProductsGrid,
